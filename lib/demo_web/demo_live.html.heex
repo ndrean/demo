@@ -1,0 +1,64 @@
+<h2>Functional Component rendered  </h2>
+<DemoWeb.FuncComp.display_counter counter={@counter}  id="cc-2"/>
+<p>The state is hold in the parent component, this page.</p>
+<button phx-click="inc">+1</button>
+<button phx-click="dec">-1</button>
+<button phx-click="reset">Reset</button>
+
+<h3>Another functional component</h3>
+<p>The light is <b><%= @light_bulb_status %></b> at <DemoWeb.FuncComp.display_clock now={@now}/></p>
+
+<%= if @light_bulb_status=="off" do %>
+   <button phx-click="on">On</button>
+   <button phx-click="off" disabled>Off</button>
+   <% end %>
+
+<%= if @light_bulb_status=="on" do %>
+   <button phx-click="on" disabled>On</button>
+   <button phx-click="off">Off</button>
+<% end %>
+
+<br>
+
+
+
+
+
+
+<br>
+<h2>Stateful Component: a form</h2>
+<.live_component module={DemoWeb.Airports.AirportComponent} 
+   id="ac1"
+   airports={[]} 
+   airport_code={nil}
+   loading={false}
+   matches={[]}
+   searched_code={nil}
+   />
+<.live_component module={DemoWeb.Airports.AirportComponent} 
+   id="ac2"
+   airports={[]} 
+   airport_code={nil}
+   loading={false}
+   matches={[]}
+   searched_code={nil}
+   />
+
+<!--
+<DemoWeb.Airports.AirportComponent.render 
+   id="ac-1"
+   airports={@airports} 
+   airport_code={@airport_code}
+   loading={@loading}
+   matches={@matches}
+/>
+-->
+<!--.airportform airports={@airports} airport_code={@airport_code} /-->
+
+<br>
+<h3>Timer</h3>
+<DemoWeb.FuncComp.display_timer seconds={@seconds} time={@time}/>
+<button phx-click="start_timer">Start</button>
+<button phx-click="stop_timer">Stop</button>
+
+
