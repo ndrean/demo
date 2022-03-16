@@ -1,12 +1,22 @@
-<h2>Functional Component rendered  </h2>
+<h2>Functional Component rendered</h2>
+
+<p>HEEx allows invoking these function components directly in the template
+  using an HTML-like notation.</p>
+<p>The state of the component is hold in the parent component. For example, we display a counter and interact with it with buttons.</p>   
 <DemoWeb.FuncComp.display_counter counter={@counter}  id="cc-2"/>
-<p>The state is hold in the parent component, this page.</p>
 <button phx-click="inc">+1</button>
 <button phx-click="dec">-1</button>
 <button phx-click="reset">Reset</button>
 
-<h3>Another functional component</h3>
-<p>The light is <b><%= @light_bulb_status %></b> at <DemoWeb.FuncComp.display_clock now={@now}/></p>
+<pre> DemoWeb.FuncComp.display_counter counter={@counter}  id="cc-2"</pre>
+
+<br/>
+   
+
+
+<h2>Another functional component</h2>
+<p>Switch on/off the light and register the time:</p>
+
 
 <%= if @light_bulb_status=="off" do %>
    <button phx-click="on">On</button>
@@ -17,7 +27,8 @@
    <button phx-click="on" disabled>On</button>
    <button phx-click="off">Off</button>
 <% end %>
-
+<br/>
+<span> The light was <b><%= @light_bulb_status %></b> at <DemoWeb.FuncComp.display_clock now={@now}/></span>
 <br>
 
 
